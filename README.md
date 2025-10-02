@@ -101,7 +101,7 @@ python app.py
 ```
 ### Frontend Setup
 <details> <summary>Click to expand frontend setup (copyable)</summary>
-```bash
+
 cd frontend-dashboard-assignment/frontend
 
 # Install dependencies
@@ -110,53 +110,28 @@ npm install
 # Run frontend server
 npm run dev
 
-🖼 Screenshots Carousel
+### 🖼 Screenshots Carousel
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation, Autoplay } from "swiper";
-import "./carousel.css"; // optional CSS for lightning effect
+| Landing | Register | Login |
+|---------|---------|-------|
+| ![Landing](/img/land.png) | ![Register](/img/register.png) | ![Login](/img/login.png) |
 
-const ScreenshotCarousel = () => {
-  const screenshots = [
-    "/img/land.png",
-    "/img/register.png",
-    "/img/login.png",
-    "/img/dash1.png",
-    "/img/edit_task.png",
-    "/img/search.png",
-    "/img/Full_dash.png",
-    "/img/forgot_pwd.png",
-    "/img/email_pwd.png",
-    "/img/set_pwd.png",
-  ];
+| Dashboard | Edit Task | Search |
+|-----------|----------|--------|
+| ![Dashboard](/img/dash1.png) | ![Edit Task](/img/edit_task.png) | ![Search](/img/search.png) |
 
-  return (
-    <Swiper
-      modules={[Navigation, Autoplay]}
-      navigation
-      autoplay={{ delay: 3000 }}
-      loop={true}
-      speed={800}
-      spaceBetween={20}
-      slidesPerView={1}
-    >
-      {screenshots.map((src, index) => (
-        <SwiperSlide key={index}>
-          <img
-            src={src}
-            alt={`Screenshot ${index + 1}`}
-            className="rounded-xl shadow-lg border border-gray-200 w-full"
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
-};
+| Forgot Password | Reset Email | Set Password |
+|-----------------|------------|-------------|
+| ![Forgot Password](/img/forgot_pwd.png) | ![Reset Email](/img/email_pwd.png) | ![Set Password](/img/set_pwd.png) |
 
-export default ScreenshotCarousel;
+
+
+
+| Full Dashboard|
+|--------------|
+| ![Full Dashboard](/img/Full_dash.png) |
+
+
 
 
 ### 🔗 API Documentation
