@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Custom Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #4f46e5;
+  --primary-light: #818cf8;
+  --primary-dark: #3730a3;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --dark: #1e293b;
+  --light: #f8fafc;
+}
+
+/* Base styles with custom properties */
+body {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* Advanced Glass Morphism effect for cards */
+.glass-card {
+  @apply bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl shadow-lg border border-gray-100;
+}
+
+/* Advanced 3D hover effect for cards */
+.card-3d {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 30px 30px -15px rgba(0, 0, 0, 0.2);
+}
+
+/* Innovative custom spinner with gradient */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: conic-gradient(rgba(0, 0, 0, 0) 0%, var(--primary-light) 100%);
+  -webkit-mask: radial-gradient(circle closest-side, rgba(0, 0, 0, 0) 0, #000 20%, #000 95%, rgba(0, 0, 0, 0) 0);
+  mask: radial-gradient(circle closest-side, rgba(0, 0, 0, 0) 0, #000 20%, #000 95%, rgba(0, 0, 0, 0) 0);
+  animation: spin 1s linear infinite;
+}
+
+/* Improved animation with bezier curves */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Shimmer loading effect for placeholders */
+.shimmer {
+  background: linear-gradient(
+    to right,
+    #f6f7f8 8%,
+    #edeef1 18%,
+    #f6f7f8 33%
+  );
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+/* Task card with improved animation */
+.task-card {
+  @apply bg-white rounded-xl p-4 border border-gray-100;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Task card with hover highlight effect */
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+  transition: height 0.3s ease;
+}
+
+.task-card:hover::before {
+  height: 100%;
+}
+
+/* Innovative priority badges with gradient backgrounds */
+.priority-high {
+  @apply text-red-800 font-medium;
+  background: linear-gradient(to right, #fee2e2, #fecaca);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.priority-medium {
+  @apply text-yellow-800 font-medium;
+  background: linear-gradient(to right, #fef3c7, #fde68a);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.priority-low {
+  @apply text-green-800 font-medium;
+  background: linear-gradient(to right, #d1fae5, #a7f3d0);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Status badges with animated glow effect */
+.status-completed {
+  @apply text-blue-800 font-medium;
+  background: linear-gradient(to right, #dbeafe, #bfdbfe);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+  animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.status-in-progress {
+  @apply text-purple-800 font-medium;
+  background: linear-gradient(to right, #ede9fe, #ddd6fe);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-in-progress::after {
+  content: '';
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.3);
+  animation: progress 1.5s infinite;
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.status-not-started {
+  @apply text-gray-800 font-medium;
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+/* Custom button styles with animations */
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover::after {
+  left: 100%;
+}
+
+.btn-primary {
+  @apply bg-indigo-600 text-white;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2), 0 2px 4px -1px rgba(79, 70, 229, 0.06);
+}
+
+.btn-primary:hover {
+  @apply bg-indigo-700;
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3), 0 4px 6px -2px rgba(79, 70, 229, 0.1);
+}
+
+/* Dashboard card with neuomorphism style */
+.neumorph-card {
+  @apply bg-gray-50 rounded-2xl;
+  box-shadow: 10px 10px 20px rgba(211, 211, 211, 0.5), 
+              -10px -10px 20px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.neumorph-card:hover {
+  box-shadow: 5px 5px 10px rgba(211, 211, 211, 0.5), 
+              -5px -5px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Custom input field styling */
+.input-custom {
+  @apply border border-gray-300 rounded-lg px-12 py-2 focus:ring-2 focus:outline-none;
+  transition: all 0.3s ease;
+    color: #000;
+}
+
+.input-custom:focus {
+  @apply border-indigo-500 ring-indigo-200;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  
+}
+
+/* Typography enhancements */
+.heading-gradient {
+  @apply font-bold;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive mobile enhancements */
+@media (max-width: 640px) {
+  .card-3d:hover {
+    transform: translateY(-5px);
+  }
+  
+  .task-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark: #f8fafc;
+    --light: #1e293b;
+  }
+  
+  body {
+    background-color: #111827;
+    color: var(--dark);
+  }
+  
+  .glass-card {
+    @apply bg-gray-800 bg-opacity-80 border-gray-700;
+  }
+  
+  .task-card {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .neumorph-card {
+    @apply bg-gray-800;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5), 
+                -10px -10px 20px rgba(40, 40, 40, 0.5);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2d3748;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4a5568;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
