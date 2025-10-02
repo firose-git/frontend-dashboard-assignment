@@ -114,7 +114,7 @@ npm run dev
 
 | Landing | Register | Login |
 |---------|---------|-------|
-| ![Landing](/img/land.png) | ![Register](/img/register.png) | ![Login](/img/login.png) |
+| ![Landing](/img/land.png) | ![Register](/img/register1.png) | ![Login](/img/login.png) |
 
 | Dashboard | Edit Task | Search |
 |-----------|----------|--------|
@@ -122,7 +122,7 @@ npm run dev
 
 | Forgot Password | Reset Email | Set Password |
 |-----------------|------------|-------------|
-| ![Forgot Password](/img/forgot_pwd.png) | ![Reset Email](/img/email_pwd.png) | ![Set Password](/img/set_pwd.png) |
+| ![Forgot Password](/img/forget_pwd.png) | ![Reset Email](/img/email_pwd.png) | ![Set Password](/img/set_pwd.png) |
 
 
 
